@@ -34,11 +34,26 @@
 
         public RepositoryCollectionBooking()
         {
-            _booking.Add(new Booking(101, "Mødelokale A", "Whiteboard", ""));
+            _booking.Add(new Booking(101, "Mødelokale A", "Whiteboard og Projector", 40, ""));
 
-            _booking.Add(new Booking(102, "Mødelokale B", "Whiteboard", ""));
+            _booking.Add(new Booking(102, "Mødelokale A", "Whiteboard og Projector", 35, ""));
 
-            _booking.Add(new Booking(103, "Mådelokale C", "Projector",""));
+            _booking.Add(new Booking(103, "Mødelokale A", "Whiteboard og Projector", 20, ""));
+
+            _booking.Add(new Booking(104, "Mødelokale A", "Whiteboard og Projector", 20, ""));
+
+            _booking.Add(new Booking(105, "Mødelokale A", "Whiteboard", 20, ""));
+
+            _booking.Add(new Booking(106, "Mødelokale A", "Whiteboard", 20, ""));
+
+            _booking.Add(new Booking(107, "Mødelokale A", "Whiteboard", 20, ""));
+
+            _booking.Add(new Booking(108, "Mødelokale B", "projector",20, ""));
+
+            _booking.Add(new Booking(109, "Mådelokale C", "Projector",10, ""));
+
+            _booking.Add(new Booking(110, "Mødelokale A", "Ingenting", 5, ""));
+
 
         }
 
