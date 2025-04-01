@@ -1,4 +1,5 @@
-﻿using EasyBook.Repository;
+﻿using EasyBook.Model;
+using EasyBook.Repository;
 
 namespace EasyBook.Services
 {

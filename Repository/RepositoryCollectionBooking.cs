@@ -1,4 +1,6 @@
-﻿namespace EasyBook.Repository
+﻿using EasyBook.Model;
+
+namespace EasyBook.Repository
 {
     public class RepositoryCollectionBooking :BookingRepository
     {
