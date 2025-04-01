@@ -1,0 +1,27 @@
+﻿@page
+@model EasyBook.Pages.IndexModel
+<h2>Mødelokaler</h2>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Kapacitet</th>
+                <th>Udstyr</th>
+                <th>Tilgængelighed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MeetingRoom room in Model.MeetingRooms)
+            {
+                <tr>
+                    <td>@room.Name</td> <!--Navnet på mødelokalet-->
+                    <td>@room.Capacity</td><!--Plads i mødelokalet-->
+                    <td>@room.Equipment</td><!--Udstyr i mødelokalet-->
+                    <td>@room.Available</td><!--Tilgængelighed af mødelokalet-->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="/Create">Book et mødelokale</a>
