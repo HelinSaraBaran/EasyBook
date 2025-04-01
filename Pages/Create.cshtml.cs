@@ -1,12 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace EasyBook.Pages
+﻿namespace EasyBook.Pages
 {
-    public class CreateModel : PageModel
+    public class Create
     {
-        public void OnGet()
-        {
-        }
     }
 }
