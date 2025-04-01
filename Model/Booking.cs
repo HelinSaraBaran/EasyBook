@@ -5,15 +5,15 @@ using System.Xml.Linq;
 namespace EasyBook.Model
 {  // vi har oprettet en klasse der hedder Booking
     public class Booking
-    {
+    { // vi opretter vores parameter
     public int Id {  get; set; }
     public int MeetingRoomId { get; set; }
     public DateTime BookingDate { get; set; }
-    public string Comment { get; set; }
+    public string Comments { get; set; }
 
     }
 
-    }
+//    }
 }
 
 
@@ -25,11 +25,11 @@ namespace EasyBook.Model
 
 //public int Size { get; set; }
 
-/*/constructer
-public Booking(int id, string name, string description, int size, string imagepath)
-{
-    ID = id;
-    Name = name;
-    Description = description;
-    ImagePath = imagepath;
-    Size = size;
+//constructer
+//public Booking(int id, string name, string description, int size, string imagepath)
+//{
+  //  ID = id;
+    //Name = name;
+    //Description = description;
+    //ImagePath = imagepath;
+    //Size = size;

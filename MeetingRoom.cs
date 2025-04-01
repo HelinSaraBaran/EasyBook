@@ -4,11 +4,11 @@
     {
         internal bool IsAvailable;
 
-        // vi opretter vores parameter 
-        public int Id { get; set; }
+    // vi opretter vores parameter 
+    public int Id { get; set; }
     public string Name { get; set; }
     public int Capacity { get; set; }
     public bool IsAvaiable { get; set; }
-       
+      public string Equipment { get; set; }
     }
 }

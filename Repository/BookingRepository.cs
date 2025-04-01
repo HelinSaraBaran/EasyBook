@@ -1,16 +1,15 @@
 ﻿using EasyBook.Model;
 
 namespace EasyBook.Repository
-{
-    public interface BookingRepository
-    {
-        //public List<Booking> Getall();
+{// vi har oprettet en klasse der hedder BookingRepository
+    public class BookingRepository
+    {  // vi opretter vore liste til at gemme vores bookinger
+        private List <Booking> bookings = new List<Booking> ();
 
-        //metode signatur til at tilføje til repository. Add er fx en metode
+        //metode til at tilføje booking til repository
+        public void AddBooking(Booking booking) => bookings.Add(booking);
 
-        //tilføjer parameter
-       // public void Add(Booking booking);
-
-        //public Booking Get(int id);
+        //metode til at hente alle bookinger
+        public List<Booking> GetAll() => bookings;
     }
 }
