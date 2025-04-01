@@ -10,4 +10,8 @@
     <Content Include="Model\Booking.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\photos\" />
+  </ItemGroup>
+
 </Project>
