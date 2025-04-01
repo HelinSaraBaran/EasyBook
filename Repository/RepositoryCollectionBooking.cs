@@ -36,23 +36,23 @@
         {
             _booking.Add(new Booking(101, "Mødelokale A", "Whiteboard og Projector", 40, ""));
 
-            _booking.Add(new Booking(102, "Mødelokale A", "Whiteboard og Projector", 35, ""));
+            _booking.Add(new Booking(102, "Mødelokale B", "Whiteboard og Projector", 35, ""));
 
-            _booking.Add(new Booking(103, "Mødelokale A", "Whiteboard og Projector", 20, ""));
+            _booking.Add(new Booking(103, "Mødelokale C", "Whiteboard og Projector", 30, ""));
 
-            _booking.Add(new Booking(104, "Mødelokale A", "Whiteboard og Projector", 20, ""));
+            _booking.Add(new Booking(104, "Mødelokale D", "Whiteboard og Projector", 30, ""));
 
-            _booking.Add(new Booking(105, "Mødelokale A", "Whiteboard", 20, ""));
+            _booking.Add(new Booking(105, "Mødelokale E", "Whiteboard", 25, ""));
 
-            _booking.Add(new Booking(106, "Mødelokale A", "Whiteboard", 20, ""));
+            _booking.Add(new Booking(106, "Mødelokale F", "Whiteboard", 25, ""));
 
-            _booking.Add(new Booking(107, "Mødelokale A", "Whiteboard", 20, ""));
+            _booking.Add(new Booking(107, "Mødelokale G", "Whiteboard", 20, ""));
 
-            _booking.Add(new Booking(108, "Mødelokale B", "projector",20, ""));
+            _booking.Add(new Booking(108, "Mødelokale H", "projector",16, ""));
 
-            _booking.Add(new Booking(109, "Mådelokale C", "Projector",10, ""));
+            _booking.Add(new Booking(109, "Mådelokale I", "Projector",10, ""));
 
-            _booking.Add(new Booking(110, "Mødelokale A", "Ingenting", 5, ""));
+            _booking.Add(new Booking(110, "Mødelokale J", "Ingenting", 5, ""));
 
 
         }
