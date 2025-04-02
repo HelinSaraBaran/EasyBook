@@ -18,6 +18,6 @@ namespace EasyBook.Pages
             // vi henter alle mødelokalerne
             MeetingRooms = _meetingRoomRepo.GetAll();
         }
-        //hej 
+        
     }
 }
