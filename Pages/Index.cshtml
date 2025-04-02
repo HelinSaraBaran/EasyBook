@@ -1,28 +1,44 @@
-﻿@page
+@page
 @model EasyBook.Pages.IndexModel
+<link href="~/css/rooms.css" rel="stylesheet" />
 <h2>Mødelokaler</h2>
 <div>
     <table>
-        <thead>
+@*         <thead>
             <tr>
                 <th>Navn</th>
                 <th>Kapacitet</th>
                 <th>Udstyr</th>
                 <th>Tilgængelighed</th>
             </tr>
-        </thead>
+        </thead> *@
         <tbody>
-            @* C# loop for creating a table row for each meeting room *@
-            @foreach (MeetingRoom room in Model.MeetingRooms)
-            {
-                <tr>
-                    <td>@room.Name</td> <!--Navnet på mødelokalet-->
-                    <td>@room.Capacity</td><!--Plads i mødelokalet-->
-                    <td>@room.Equipment</td><!--Udstyr i mødelokalet-->
-                    <td>@room.IsAvailable</td><!--Tilgængelighed af mødelokalet-->
-                </tr>
-            }
+            <div class="container">
+                @* C# loop for creating a table row for each meeting room *@
+                @foreach (Model.MeetingRoom room in Model.MeetingRooms)
+                {
+                    <div>
+                            <div class="card" id="card-@room.Id" style="width: 16rem;">
+                                <div class="card__bg">
+                                    <img src="/photos/@room.ImagePath" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@room.Name</h5>
+                                            <div class="card-text">
+                                                <p class="card-text-capacity">Kapacitet: @room.Capacity</p>
+                                                <p class="card-text-avail">Tilgængelighed: @room.IsAvailable</p>
+                                                <p class="card-text-whiteboard">Whiteboard: @room.Whiteboard</p>
+                                                <p class="card-text-proj">Projector: @room.Projector</p>
+                                            </div>
+                                        </div>
+                                    <div class="card__btn-body">
+                                        <a href="/@room.Id" class="card__btn">LÆS MERE</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                }
+            </div>
         </tbody>
     </table>
+    <a href="/Create">Book et mødelokale</a>
 </div>
-<a href="/Create">Book et mødelokale</a>

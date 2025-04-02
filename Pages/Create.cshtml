@@ -10,7 +10,7 @@
         <div>
             <label>Mødelokale:</label>
             <select name="MeetingRoomId">
-                @foreach (MeetingRoom room in Model.MeetingRooms)
+                @foreach (Model.MeetingRoom room in Model.MeetingRooms)
                 {
                     <option value="@room.Id">@room.Name</option>
                 }
