@@ -13,15 +13,16 @@
     <label>Mødelokale:</label>
     <select name="MeetingRoomId"> <!--Her kommer vopres dropdown menu-->
         <!--Vi itererer/ gennemløb over mødelokalerne-->
-            @foreach (MeetingRoom room in Model.MeetingRooms)
+         @foreach (MeetingRoom room in Model.MeetingRooms)
             {
                 <option value="@room.Id">@room.Name</option> <!--Her vælger vi mødelokalet-->
-            }
-
+            
     </select>
     </div>
+    
     <label>Kommentar:</label>
     <input type="text" name="Comment" />
-    </div>
     <button type ="submit">Book</button>
+            
 </form>
+            }
