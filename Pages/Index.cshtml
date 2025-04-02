@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model EasyBook.Pages.IndexModel
 <h2>Mødelokaler</h2>
 <div>
@@ -12,7 +12,8 @@
             </tr>
         </thead>
         <tbody>
-            @for (MeetingRoom room in Model.MeetingRooms)
+            @* C# loop for creating a table row for each meeting room *@
+            @foreach (MeetingRoom room in Model.MeetingRooms)
             {
                 <tr>
                     <td>@room.Name</td> <!--Navnet på mødelokalet-->
