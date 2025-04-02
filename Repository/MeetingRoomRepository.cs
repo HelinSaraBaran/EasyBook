@@ -5,22 +5,21 @@ namespace EasyBook.Repository
     // vi har oprettet en klasse der hedder MeetingRoom
     public class MeetingRoomRepository
     {
-        // vi opretter en liste af mødelokaler
+        /// <summary>
+        /// Initialisere en liste a mødelokaler med predefinerede værdier
+        /// </summary>
         private List<MeetingRoom> meetingRooms = new List<MeetingRoom>
         {
-        new MeetingRoom {Id = 1, Name = "Mødelokale A", Capacity = 10, Equipment = "Projektor",
-        IsAvailable = true },
-
-        new MeetingRoom {Id = 2, Name = "Mødelokale B", Capacity = 20, Equipment = "Whiteboard",
-        IsAvailable = true },
-
-        new MeetingRoom { Id = 3, Name = "Mødelokale C", Capacity = 30, Equipment = "Projektor",
-            IsAvailable = true }
+            new MeetingRoom(1, "Mødelokale A", 10, true, true, true, "../photos/lokal1.jpg"),
+            new MeetingRoom(2, "Mødelokale B", 20, true, true, true, "../photos/lokal2.jpg"),
+            new MeetingRoom(3, "Mødelokale C", 30, true, true, true, "../photos/lokal3.jpg"),
+            new MeetingRoom(1, "Mødelokale A", 10, true, true, true, "../photos/lokal4.jpg"),
+            new MeetingRoom(2, "Mødelokale B", 20, true, true, true, "../photos/lokal5.jpg"),
+            new MeetingRoom(3, "Mødelokale C", 30, true, true, true, "../photos/lokal6.jpg"),
         };
+
         // metode til at hente alle mødelokalerne
         public List<MeetingRoom> GetAll() => meetingRooms;
-
-
     }
 }
 
