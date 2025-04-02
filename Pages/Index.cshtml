@@ -1,24 +1,18 @@
 @page
 @model EasyBook.Pages.IndexModel
 <link href="~/css/rooms.css" rel="stylesheet" />
-<h2>Mødelokaler</h2>
-<div>
-    <table>
-@*         <thead>
-            <tr>
-                <th>Navn</th>
-                <th>Kapacitet</th>
-                <th>Udstyr</th>
-                <th>Tilgængelighed</th>
-            </tr>
-        </thead> *@
-        <tbody>
+<link href="~/css/navbar.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Forside";
+}
+<h2 id="title-text-index">Mødelokaler</h2>
+        <body>
             <div class="container">
                 @* C# loop for creating a table row for each meeting room *@
                 @foreach (Model.MeetingRoom room in Model.MeetingRooms)
                 {
                     <div>
-                            <div class="card" id="card-@room.Id" style="width: 45rem;">
+                            <div class="card" id="card-@room.Id" style="width: 42rem;">
                                 <div class="card__bg">
                                     <img src="/photos/@room.ImagePath" class="card-img-top" alt="...">
                                         <div class="card-body">
@@ -38,7 +32,5 @@
                     </div>
                 }
             </div>
-        </tbody>
-    </table>
+        </body>
     <a href="/Create">Book et mødelokale</a>
-</div>

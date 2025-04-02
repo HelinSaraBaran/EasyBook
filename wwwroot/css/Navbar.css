@@ -2,12 +2,12 @@
 
 /*Creates variables for colors used throughout the stylesheet*/
 :root {
-    --base-clr: #ffffff;
-    --line-clr: #ffffff;
-    --hover-clr: #ffffff;
-    --text-clr: #ffffff;
-    --accent-clr: #ffffff;
-    --secondary-text-clr: #ffffff;
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #e6e6ef;
+    --accent-clr: #5e63ff;
+    --secondary-text-clr: #b0b3c1;
 }
 
 * {
@@ -26,7 +26,7 @@ html {
 body {
     min-height: 100vh;
     max-height: 100dvh;
-    background-color: var(--base-clr);
+/*    background-color: var(--base-clr);*/
     color: var(--text-clr);
     display: grid;
     grid-template-columns: auto 1fr;
