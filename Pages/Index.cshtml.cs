@@ -1,3 +1,4 @@
+using EasyBook.Model;
 using EasyBook.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,6 +19,5 @@ namespace EasyBook.Pages
             // vi henter alle mødelokalerne
             MeetingRooms = _meetingRoomRepo.GetAll();
         }
-        
     }
 }

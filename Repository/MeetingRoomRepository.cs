@@ -1,4 +1,6 @@
-﻿namespace EasyBook.Repository
+﻿using EasyBook.Model;
+
+namespace EasyBook.Repository
 {
     // vi har oprettet en klasse der hedder MeetingRoom
     public class MeetingRoomRepository
