@@ -10,6 +10,10 @@ namespace EasyBook.Pages
 
         public void OnGet()
         {
+            //MeetingRooms = new List<MeetingRoom>
+            //{
+
+            //};
         }
     }
 }
