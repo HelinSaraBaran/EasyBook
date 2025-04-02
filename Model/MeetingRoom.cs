@@ -9,8 +9,8 @@
         public string Name { get; set; }
         public int Capacity { get; set; }
         public bool IsAvaliable { get; set; }
-        public string Equipment { get; set; }
-
+        public bool Whiteboard { get; set; }
+        public bool Projector   { get; set; }
         public string ImagePath { get; set; }
 
         //constructer
