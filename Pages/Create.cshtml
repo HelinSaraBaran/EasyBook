@@ -3,13 +3,25 @@
 
 <h2>Book et mødelokale</h2>
 
-<form method=" post"> <!--Angiver at formularen sendes som en POST anmodning-->
+<form method=" post"> <!--Vores formular sendes som en POST anmodning-->
     <div>
         <label>Navn:</label>
         <input type="text" name="EmployeeName" required />
         <!--Felt til medarbejders navn-->
     </div>
+    <div>
+    <label>Mødelokale:</label>
+    <select name="MeetingRoomId"> <!--Her kommer vopres dropdown menu-->
+        <!--Vi itererer/ gennemløb over mødelokalerne-->
+            @foreach (MeetingRoom room in Model.MeetingRooms)
+            {
+                <option value="@room.Id">@room.Name</option> <!--Her vælger vi mødelokalet-->
+            }
 
-
-    -->
+    </select>
+    </div>
+    <label>Kommentar:</label>
+    <input type="text" name="Comment" />
+    </div>
+    <button type ="submit">Book</button>
 </form>
