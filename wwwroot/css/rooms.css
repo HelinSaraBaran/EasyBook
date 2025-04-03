@@ -168,6 +168,7 @@ body {
         height: auto; /* Allow full content */
     }
 }
+/*styling til status knap*/
 .status-btn {
     padding: 10px 15px: border: none;
     border-radius: 5px;
@@ -178,14 +179,17 @@ body {
     width: 100px;
 
 }
+    /*styling til available status knap*/
 .status-btn.available {
     background-color: green;
     color: white;
 }
+    /*styling til booked status knap*/
 .status-btn.booked {
     background-color: red;
     color: white;
 }
+/*styling til reserved status knap*/
 .card-text-reserved{
     color: #dc3545;
     font-style: italic;

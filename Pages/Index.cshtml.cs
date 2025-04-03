@@ -40,7 +40,7 @@ namespace EasyBook.Pages
                 }
             }
 
-            // hvis vi fandt rummet, så ændrer vi dets status og evt. reservationstid
+            // hvis vi fandt rummet, så ændrer vi reservationstid
             if (room != null)
             {
                 room.IsAvailable = !room.IsAvailable;

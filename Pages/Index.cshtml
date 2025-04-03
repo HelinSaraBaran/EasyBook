@@ -40,7 +40,7 @@
                             <form method="post" asp-page-handler="ToggleAvailability">
                                 <input type="hidden" name="id" value="@room.Id" />
 
-                                @* Vis inputfelt for navn kun hvis lokalet er ledigt *@
+                                @* inputfeltet for navn kan ses men kun hvis lokalet er ledigt *@
                                 @if (room.IsAvailable)
                                 {
                                     <input type="text" name="reservedBy" placeholder="Dit navn" required class="name-input" />
