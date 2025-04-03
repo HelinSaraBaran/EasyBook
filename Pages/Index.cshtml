@@ -32,6 +32,11 @@
                                         </div>
                                     <div class="card__btn-body">
                                         <a href="/@room.Id" class="card__btn">LÆS MERE</a>
+                                        @*Tilføjer knap for ledig og optaget*@
+                                    <button class="status-btn @(room.IsAvailable ? "available" : "booked")" onclick="toggleAvailability(@room.Id,this)">
+                                        @(room.IsAvailable ? "Ledig" : "Optaget")
+                                    </button>
+                           
                                     </div>
                                 </div>
                             </div>
@@ -42,3 +47,19 @@
     </table>
     <a href="/Create">Book et mødelokale</a>
 </div>
+<!--Java kode-->
+<script>
+   function toggleAvailability(roomId, button){
+        fetch(`/Index?handler=ToggleAvailability&id=${roomId}`, {method: 'POST'})
+        .then(response => response.json())
+        .then(data => {
+            if(data.success){
+                button.classList.toggle("available", data.isAvailable);
+                button.classList.toggle("booked", !data.isAvailable);
+                button.innerText = data.isAvailable ? "Ledig" : "Optaget";
+            }
+            
+        });
+    }
+</script>
+<!--Dog bliver status ikke gemt, da vi ikke gøre brug af databaser-->

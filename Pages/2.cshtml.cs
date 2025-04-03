@@ -5,7 +5,9 @@ namespace EasyBook.Pages
 {
     public class room2Model : PageModel
     {
+        public void OnGet()
         {
+
         }
     }
 }
