@@ -11,7 +11,7 @@ namespace EasyBook.Repository
         private List<MeetingRoom> meetingRooms = new List<MeetingRoom>
         {
             new MeetingRoom(1, "Mødelokale A", 10, true, true, true, "../photos/lokal1.jpg"),
-            new MeetingRoom(2, "Mødelokale B", 20, true, true, true, "../photos/lokal2.jpg"),
+            new MeetingRoom(2, "Mødelokale B", 20, false, true, true, "../photos/lokal2.jpg"),
             new MeetingRoom(3, "Mødelokale C", 30, true, true, true, "../photos/lokal3.jpg"),
             new MeetingRoom(4, "Mødelokale D", 10, true, true, true, "../photos/lokal4.jpg"),
             new MeetingRoom(5, "Mødelokale E", 20, true, true, true, "../photos/lokal5.jpg"),
