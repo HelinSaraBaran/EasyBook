@@ -26,6 +26,11 @@
                                         </div>
                                     <div class="card__btn-body">
                                         <a href="/@room.Id" class="card__btn">LÆS MERE</a>
+                                        @*Tilføjer knap for ledig og optaget*@
+                                    <button class="status-btn @(room.IsAvailable ? "available" : "booked")" onclick="toggleAvailability(@room.Id,this)">
+                                        @(room.IsAvailable ? "Ledig" : "Optaget")
+                                    </button>
+                           
                                     </div>
                                 </div>
                             </div>

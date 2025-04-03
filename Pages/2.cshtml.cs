@@ -7,6 +7,7 @@ namespace EasyBook.Pages
     {
         public void OnGet()
         {
+
         }
     }
 }
