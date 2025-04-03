@@ -1,0 +1,42 @@
+﻿@page
+@model EasyBook.Pages.ReservedModel
+<a href="/Reserved" class="btn btn-outline-primary mb-4">Se reserverede mødelokaler</a>
+
+@{
+    // ¨Vi sætter sidetitlen i et layout
+    ViewData["Title"] = "Reserverede Mødelokaler";
+}
+
+// Linker til din CSS-fil for styling af siden
+<link href="~/css/rooms.css" rel="stylesheet" />
+
+<h2>📌 Aktive Reservationer</h2>
+
+@* Hvis der ikke er nogen reserverede rum, vises der en besked *@
+@if (!Model.ReservedRooms.Any())
+{
+    <p>Der er ingen mødelokaler reserveret lige nu.</p>
+}
+else
+{
+    // Hvis der er et reserveret rum, vises den i en container
+    <div class="container">
+        @foreach (var room in Model.ReservedRooms)
+        {
+            // Et kort for hvert rum der reserveres 
+            <div class="card p-3 mb-4">
+                <h4>@room.Name</h4> <!-- Navn på mødelokalet -->
+                <p>Kapacitet: @room.Capacity personer</p> <!-- Antal personer -->
+                <p>Whiteboard: @(room.Whiteboard ? "Ja" : "Nej")</p> <!-- Har whiteboard -->
+                <p>Projektor: @(room.Projector ? "Ja" : "Nej")</p> <!-- Har projektor -->
+
+                @* Viser tidspunktet for reservationen, hvis den eksistere *@
+                <p class="card-text-reserved">Reserveret kl: @room.ReservationTime?.ToString("HH:mm:ss")</p>
+
+                @* Navnet på den person der har reserveret lokalet *@
+                <p class="card-text-reserved">Reserveret af: @room.ReservedBy</p>
+            </div>
+        }
+    </div>
+}
+
