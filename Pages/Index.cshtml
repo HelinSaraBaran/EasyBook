@@ -2,7 +2,6 @@
 @model EasyBook.Pages.IndexModel
 <link href="~/css/rooms.css" rel="stylesheet" />
 <link href="~/css/navbar.css" rel="stylesheet" />
-<script src="~/js/index.js"></script>
 @{
     ViewData["Title"] = "Forside";
 }
@@ -21,6 +20,16 @@
                                             <div class="card-text">
                                                 <p class="card-text-capacity">Kapacitet: @room.Capacity</p>
                                                 <p class="card-text-avail">Tilgængelighed: @room.IsAvailable</p>
+                                                  @if (!room.IsAvailable && room.ReservationTime != null)
+                                                   {
+                                                   <p class="card-text-reserved">Reserveret kl: @room.ReservationTime?.ToString("HH:mm:ss")</p>
+                                                    }
+                                @if (!room.IsAvailable && !string.IsNullOrEmpty(room.ReservedBy))
+                                {
+                                    <p class="card-text-reserved">Reserveret af: @room.ReservedBy</p>
+                                }
+
+
                                                 <p class="card-text-whiteboard">whiteboardtavle: @room.Whiteboard</p>
                                                 <p class="card-text-proj">Projektor: @room.Projector</p>
                                             </div>
@@ -28,9 +37,20 @@
                                     <div class="card__btn-body">
                                         <a href="/@room.Id" class="card__btn"ddd>LÆS MERE</a>
                                         @*Tilføjer knap for ledig og optaget*@
-                                    <button class="status-btn @(room.IsAvailable ? "available" : "booked")" onclick="toggleAvailability(@room.Id,this)">
-                                        @(room.IsAvailable ? "Ledig" : "Optaget")
-                                    </button>
+                            <form method="post" asp-page-handler="ToggleAvailability">
+                                <input type="hidden" name="id" value="@room.Id" />
+
+                                @* Vis inputfelt for navn kun hvis lokalet er ledigt *@
+                                @if (room.IsAvailable)
+                                {
+                                    <input type="text" name="reservedBy" placeholder="Dit navn" required class="name-input" />
+                                }
+
+                                <button type="submit" class="status-btn @(room.IsAvailable ? "available" : "booked")">
+                                    @(room.IsAvailable ? "Reserver" : "Annuller")
+                                </button>
+                            </form>
+
                            
                                     </div>
                                 </div>

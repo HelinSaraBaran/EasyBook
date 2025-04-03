@@ -178,11 +178,16 @@ body {
     width: 100px;
 
 }
-.available {
+.status-btn.available {
     background-color: green;
     color: white;
 }
-.booked {
+.status-btn.booked {
     background-color: red;
     color: white;
+}
+.card-text-reserved{
+    color: #dc3545;
+    font-style: italic;
+    margin-top: -10px;
 }

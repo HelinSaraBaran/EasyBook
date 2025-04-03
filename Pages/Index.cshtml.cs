@@ -13,6 +13,10 @@ namespace EasyBook.Pages
         // vi laver en "offentlig" liste af mødelokaler
         public List<MeetingRoom> MeetingRooms { get; set; }
 
+        // vi tilføjer en BindProperty
+        [BindProperty]
+        public string ReservedBy { get; set; } // for at kunne modtage navnet fra formularen
+
         // Vi opretter en metode der hedder OnGet
         public void OnGet()
         {
@@ -20,34 +24,49 @@ namespace EasyBook.Pages
             MeetingRooms = _meetingRoomRepo.GetAll();
         }
         // Metoden kaldes, når der er en der der skal klikke på ledig/ optaget knappen på et mødelokale
-        public IActionResult OnPostToggleAvailability(int Id)
+        public IActionResult OnPostToggleAvailability(int id)
         {
-            // vi opretter en liste og henter alle mødelokalerne fra vores repository
+            // vi henter alle mødelokalerne
             List<MeetingRoom> meetingRooms = _meetingRoomRepo.GetAll();
 
-            // vi opretter en variabel for at kunne gemme det mødelokale der skal ændres
+            // vi finder det mødelokale der matcher det Id vi har fået
             MeetingRoom room = null;
-
-            // Her kan vi finde mødelokalet med det ønskede Id
             foreach (MeetingRoom r in meetingRooms)
             {
-                if (r.Id == Id)
+                if (r.Id == id)
                 {
                     room = r;
-                    break; // vores loop stopper når vi har fundet det ønskede mødelokale
+                    break;
                 }
             }
-            if (room != null)// hvis vi har fundet et mødelokale
+
+            // hvis vi fandt rummet, så ændrer vi dets status og evt. reservationstid
+            if (room != null)
             {
-                // vi skifter værsien 
                 room.IsAvailable = !room.IsAvailable;
 
-                // vi gøre brug af Javascript og retuner et json svar med en ny status
-                return new JsonResult(new { success = true, isAvailable = room.IsAvailable });
-
+                if (!room.IsAvailable)
+                {
+                    room.ReservationTime = DateTime.Now;
+                    room.ReservedBy = ReservedBy;
+                }
+                else
+                {
+                    room.ReservationTime = null;
+                    room.ReservedBy = null;
+                }
             }
-            // hvis vores mødelokale ikke bbliver fundet, retuneres fejlen 
-            return new JsonResult(new { success = false });
+
+
+            // genindlæs siden, så vi ser den nye status
+            return RedirectToPage();
         }
+
+
+
+
     }
+
 }
+    
+
