@@ -24,10 +24,10 @@
                                                    {
                                                    <p class="card-text-reserved">Reserveret kl: @room.ReservationTime?.ToString("HH:mm:ss")</p>
                                                     }
-                                @if (!room.IsAvailable && !string.IsNullOrEmpty(room.ReservedBy))
-                                {
-                                    <p class="card-text-reserved">Reserveret af: @room.ReservedBy</p>
-                                }
+                                                      @if (!room.IsAvailable && !string.IsNullOrEmpty(room.ReservedBy))
+                                                         {
+                                                    <p class="card-text-reserved">Reserveret af: @room.ReservedBy</p>
+                                                              }
 
 
                                                 <p class="card-text-whiteboard">whiteboardtavle: @room.Whiteboard</p>

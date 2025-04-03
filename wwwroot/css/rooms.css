@@ -191,3 +191,11 @@ body {
     font-style: italic;
     margin-top: -10px;
 }
+/*Styling til vores formfelter*/
+form input,
+form select{
+margin: 0 10px 10px 0;
+padding: 6px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}

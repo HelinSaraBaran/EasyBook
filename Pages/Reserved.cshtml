@@ -1,39 +1,54 @@
 ﻿@page
 @model EasyBook.Pages.ReservedModel
+
+<!-- Knappen linker til siden med reserverede mødelokaler -->
 <a href="/Reserved" class="btn btn-outline-primary mb-4">Se reserverede mødelokaler</a>
 
 @{
-    // ¨Vi sætter sidetitlen i et layout
+    // Vi sætter sidetitlen i layoutet
     ViewData["Title"] = "Reserverede Mødelokaler";
 }
 
-// Linker til din CSS-fil for styling af siden
+// Linker til din CSS-fil
 <link href="~/css/rooms.css" rel="stylesheet" />
 
 <h2>📌 Aktive Reservationer</h2>
 
-@* Hvis der ikke er nogen reserverede rum, vises der en besked *@
+@* Formular til filtrering og sortering *@
+<form method="get" class="mb-4">
+    <label for="SearchName">Filtrer efter navn:</label>
+    <input type="text" id="SearchName" name="SearchName" value="@Model.SearchName" placeholder="F.eks. Mia" />
+
+    <label for="SortOrder">Sortér efter tidspunkt:</label>
+    <select id="SortOrder" name="SortOrder">
+        <option value="desc" selected="@("desc" == Model.SortOrder)">Nyeste først</option>
+        <option value="asc" selected="@("asc" == Model.SortOrder)">Ældste først</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Filtrer</button>
+</form>
+
+@* Hvis ingen rum er reserveret *@
 @if (!Model.ReservedRooms.Any())
 {
     <p>Der er ingen mødelokaler reserveret lige nu.</p>
 }
 else
 {
-    // Hvis der er et reserveret rum, vises den i en container
+    // Hvis der er reserverede rum, vis dem i kort
     <div class="container">
         @foreach (var room in Model.ReservedRooms)
         {
-            // Et kort for hvert rum der reserveres 
             <div class="card p-3 mb-4">
                 <h4>@room.Name</h4> <!-- Navn på mødelokalet -->
-                <p>Kapacitet: @room.Capacity personer</p> <!-- Antal personer -->
-                <p>Whiteboard: @(room.Whiteboard ? "Ja" : "Nej")</p> <!-- Har whiteboard -->
-                <p>Projektor: @(room.Projector ? "Ja" : "Nej")</p> <!-- Har projektor -->
+                <p>Kapacitet: @room.Capacity personer</p>
+                <p>Whiteboard: @(room.Whiteboard ? "Ja" : "Nej")</p>
+                <p>Projektor: @(room.Projector ? "Ja" : "Nej")</p>
 
-                @* Viser tidspunktet for reservationen, hvis den eksistere *@
+                @* Vis tidspunktet for reservationen hvis sat *@
                 <p class="card-text-reserved">Reserveret kl: @room.ReservationTime?.ToString("HH:mm:ss")</p>
 
-                @* Navnet på den person der har reserveret lokalet *@
+                @* Vis hvem der har reserveret *@
                 <p class="card-text-reserved">Reserveret af: @room.ReservedBy</p>
             </div>
         }
