@@ -1,3 +1,5 @@
+using EasyBook.Model;
+using EasyBook.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

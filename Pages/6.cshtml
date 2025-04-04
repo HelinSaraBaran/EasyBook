@@ -30,21 +30,6 @@
     <div class="modal fade" id="bekraeftModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" asp-page-handler="ToggleAvailability">
-                    <input type="hidden" name="id" value="@room.Id" />
-
-                    @* inputfeltet for navn kan ses men kun hvis lokalet er ledigt *@
-                    @if (room.IsAvailable)
-                    {
-                        <input type="text" name="reservedBy" placeholder="Dit navn" required class="name-input" />
-                        <input type="text" name="reservedBy" placeholder="Dato" required class="date-input" />
-                        <input type="text" name="reservedBy" placeholder="Tid" required class="Time-input" />
-                    }
-
-                    <button type="submit" class="status-btn @(room.IsAvailable ? "available" : "booked")">
-                        @(room.IsAvailable ? "Reserver" : "Annuller")
-                    </button>
-                </form>
                 <div class="modal-header">
                     <h5 class="modal-title">Bekræft Reservation</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Luk"></button>
