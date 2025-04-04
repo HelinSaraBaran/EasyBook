@@ -1,5 +1,6 @@
 ﻿@page
 @model EasyBook.Pages.room6Model
+
 <script src="~/js/index.js"></script>
 @{
 }
@@ -31,18 +32,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="post" asp-page-handler="ToggleAvailability">
-                    <input type="hidden" name="id" value="@room.Id" />
+                    <input type="hidden" name="id" value="@Model.Room.Id" />
 
                     @* inputfeltet for navn kan ses men kun hvis lokalet er ledigt *@
-                    @if (room.IsAvailable)
+                    @if (Model.Room.IsAvailable)
                     {
                         <input type="text" name="reservedBy" placeholder="Dit navn" required class="name-input" />
                         <input type="text" name="reservedBy" placeholder="Dato" required class="date-input" />
                         <input type="text" name="reservedBy" placeholder="Tid" required class="Time-input" />
                     }
 
-                    <button type="submit" class="status-btn @(room.IsAvailable ? "available" : "booked")">
-                        @(room.IsAvailable ? "Reserver" : "Annuller")
+                    <button type="submit" class="status-btn @(Model.Room.IsAvailable ? "available" : "booked")">
+                        @(Model.Room.IsAvailable ? "Reserver" : "Annuller")
                     </button>
                 </form>
                 <div class="modal-header">
