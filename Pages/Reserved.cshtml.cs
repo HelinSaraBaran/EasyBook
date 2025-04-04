@@ -4,14 +4,15 @@ using EasyBook.Model;
 using EasyBook.Repository;
 using System.Collections.Generic;
 using System.Linq;
+using EasyBook.Services;
 
 namespace EasyBook.Pages
 {
     public class ReservedModel : PageModel // Klassen 
     {
         // Felt til mødelokale-data
-        private readonly MeetingRoomRepository _meetingRoomRepo = new MeetingRoomRepository();
-
+        //private readonly MeetingRoomRepository _meetingRoomRepo = new MeetingRoomRepository();
+        private readonly BookingServices _bookingservice;
         // Liste med alle vores reserverede mødelokaler
         public List<MeetingRoom> ReservedRooms { get; set; } = new List<MeetingRoom>();
 
@@ -23,11 +24,16 @@ namespace EasyBook.Pages
         [BindProperty(SupportsGet = true)]
         public string SortOrder { get; set; }
 
+        public ReservedModel(BookingServices bookingservice) 
+        {
+            _bookingservice = bookingservice;
+        }
+
         // Vi gøre brug af get metode 
         public void OnGet()
         {
             // Vi henter alle mødelokaler
-            List<MeetingRoom> allRooms = _meetingRoomRepo.GetAll();
+            List<MeetingRoom> allRooms = MeetingRoom.GetAll(Booking);
 
             // vi vælger mødelokaler der er reserveret (IsAvailable == false)
             foreach (MeetingRoom room in allRooms)

@@ -3,11 +3,11 @@ using EasyBook.Repository;
 
 namespace EasyBook.Services
 {
-    public class BookingServices
+    public class RoomServices
     {
         private BookingRepository _bookingREPO = null;
 
-        public BookingServices(BookingRepository bookingREPO)
+        public RoomServices(BookingRepository bookingREPO)
         {
             _bookingREPO = bookingREPO;
         }
@@ -27,4 +27,5 @@ namespace EasyBook.Services
 
     }
 }
+
 
