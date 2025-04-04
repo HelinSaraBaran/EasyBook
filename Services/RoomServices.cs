@@ -5,23 +5,23 @@ namespace EasyBook.Services
 {
     public class RoomServices
     {
-        private BookingRepository _bookingREPO = null;
+        private MeetingRoomRepository _meetingREPO = null;
 
-        public RoomServices(BookingRepository bookingREPO)
+        public RoomServices(MeetingRoomRepository meetingREPO)
         {
-            _bookingREPO = bookingREPO;
+            _meetingREPO = meetingREPO;
         }
-        public void Add(Booking booking)
+        public void Add(MeetingRoom meeting)
         {
-            _bookingREPO.AddBooking(booking);
+            _meetingREPO.AddMeeting(meeting);
         }
-        public List<Booking> GetAll()
+        public List<MeetingRoom> GetAll()
         {
-            return _bookingREPO.GetAll();
+            return _meetingREPO.GetAll();
         }
-        public Booking Get(int id)
+        public MeetingRoom Get(int id)
         {
-            return _bookingREPO.Get(id);
+            return _meetingREPO.Get(id);
         }
 
 
