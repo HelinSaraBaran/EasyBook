@@ -80,7 +80,7 @@ body {
         border-radius: .5em;
         padding: .85em;
         text-decoration: none;
-        color: var(--text-clr);
+        color: var(--text-clr) !important;
         display: flex;
         align-items: center;
         gap: 1em;

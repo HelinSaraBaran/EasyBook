@@ -1,5 +1,7 @@
 ﻿@page
 @model EasyBook.Pages.ReservedModel
+<link href="~/css/rooms.css" rel="stylesheet" />
+<link href="~/css/Navbar.css" rel="stylesheet" />
 
 <!-- Knappen linker til siden med reserverede mødelokaler -->
 <a href="/Reserved" class="btn btn-outline-primary mb-4">Se reserverede mødelokaler</a>
@@ -9,7 +11,7 @@
     ViewData["Title"] = "Reserverede Mødelokaler";
 }
 
-// Linker til din CSS-fil
+@* Linker til din CSS-fil *@
 <link href="~/css/rooms.css" rel="stylesheet" />
 
 <h2>📌 Aktive Reservationer</h2>
