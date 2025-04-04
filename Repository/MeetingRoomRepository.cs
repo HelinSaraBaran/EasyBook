@@ -17,13 +17,18 @@ namespace EasyBook.Repository
             new MeetingRoom(5, "Mødelokale E", 20, true, false, true, "../photos/lokal5.jpg"),
             new MeetingRoom(6, "Mødelokale F", 30, true, true, true, "../photos/lokal6.jpg"),
         };
-        
+
         // metode til at hente alle mødelokalerne
         public List<MeetingRoom> GetAll() => meetingRooms;
 
         internal void AddMeeting(MeetingRoom meeting)
         {
             throw new NotImplementedException();
+        }
+        public Booking Get()
+        {
+
+            return null;
         }
     }
 }
