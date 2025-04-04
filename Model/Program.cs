@@ -1,3 +1,6 @@
+using EasyBook.Repository;
+using EasyBook.Services;
+
 namespace EasyBook
 {
     public class Program
@@ -9,6 +12,12 @@ namespace EasyBook
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            // singleton smider noget ind i aplikationen. 
+            builder.Services.AddSingleton<BookingRepository>();
+            builder.Services.AddSingleton<MeetingRoomRepository>();
+
+            builder.Services.AddSingleton<BookingServices>();
+            builder.Services.AddSingleton<RoomServices>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

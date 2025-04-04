@@ -1,5 +1,6 @@
 using EasyBook.Model;
 using EasyBook.Repository;
+using EasyBook.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,8 +8,11 @@ namespace EasyBook.Pages
 {
     public class IndexModel : PageModel
     {
-        // vi opretter en instans af MeetingRoomRepository til at hente mødelokalerne
-        private readonly MeetingRoomRepository _meetingRoomRepo = new MeetingRoomRepository();
+       // vi laver en konstruktor 
+        private readonly RoomServices _roomservice;
+
+        // vi opretter en constructor
+        public IndexModel(RoomServices bs) { _roomservice = bs; }
 
         // vi laver en "offentlig" liste af mødelokaler
         public List<MeetingRoom> MeetingRooms { get; set; }
@@ -21,13 +25,13 @@ namespace EasyBook.Pages
         public void OnGet()
         {
             // vi henter alle mødelokalerne
-            MeetingRooms = _meetingRoomRepo.GetAll();
+            MeetingRooms = _roomservice.GetAll();
         }
         // Metoden kaldes, når der er en der der skal klikke på ledig/ optaget knappen på et mødelokale
         public IActionResult OnPostToggleAvailability(int id)
         {
             // vi henter alle mødelokalerne
-            List<MeetingRoom> meetingRooms = _meetingRoomRepo.GetAll();
+            List<MeetingRoom> meetingRooms = _roomservice.GetAll();
 
             // vi finder det mødelokale der matcher det Id vi har fået
             MeetingRoom room = null;
@@ -55,6 +59,10 @@ namespace EasyBook.Pages
                     room.ReservationTime = null;
                     room.ReservedBy = null;
                 }
+
+                // vi opdaterer mødelokalet
+                _roomservice.UpdateMeetingRoom(room);
+                
             }
 
 

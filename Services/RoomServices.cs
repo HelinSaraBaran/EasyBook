@@ -24,7 +24,10 @@ namespace EasyBook.Services
             return _meetingREPO.Get(id);
         }
 
-
+        internal void UpdateMeetingRoom(MeetingRoom room)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

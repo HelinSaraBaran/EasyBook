@@ -8,7 +8,7 @@ namespace EasyBook.Repository
         /// <summary>
         /// Initialisere en liste a mødelokaler med predefinerede værdier
         /// </summary>
-        private List<MeetingRoom> meetingRooms = new List<MeetingRoom>
+        private List<MeetingRoom> _meetingRooms = new List<MeetingRoom>
         {
             new MeetingRoom(1, "Mødelokale A", 20, true, true, false, "../photos/lokal1.jpg"),
             new MeetingRoom(2, "Mødelokale B", 25, false, true, true, "../photos/lokal2.jpg"),
@@ -19,15 +19,22 @@ namespace EasyBook.Repository
         };
 
         // metode til at hente alle mødelokalerne
-        public List<MeetingRoom> GetAll() => meetingRooms;
+        public List<MeetingRoom> GetAll() => _meetingRooms;
 
         internal void AddMeeting(MeetingRoom meeting)
         {
             throw new NotImplementedException();
         }
-        public Booking Get()
+        public MeetingRoom Get(int id)
         {
 
+            foreach (MeetingRoom m in _meetingRooms)
+            {
+                if (id == m.Id)
+                {
+                    return m;
+                }
+            }
             return null;
         }
     }
