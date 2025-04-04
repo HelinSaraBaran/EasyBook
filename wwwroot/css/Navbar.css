@@ -17,6 +17,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.logo {
+    color: #192862 !important;
+    align-content: center;
+}
 html {
     scroll-behavior: smooth;
     font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
