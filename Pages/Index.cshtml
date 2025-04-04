@@ -44,6 +44,8 @@
                                 @if (room.IsAvailable)
                                 {
                                     <input type="text" name="reservedBy" placeholder="Dit navn" required class="name-input" />
+                                    <input type="text" name="reservedBy" placeholder="Dato" required class="date-input" />
+                                    <input type="text" name="reservedBy" placeholder="Tid" required class="Time-input" />
                                 }
 
                                 <button type="submit" class="status-btn @(room.IsAvailable ? "available" : "booked")">
