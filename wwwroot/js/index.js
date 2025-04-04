@@ -4,15 +4,15 @@
     const statusText = document.getElementById("statusText");
 
     function checkReservation() {
-        let erReserveret = localStorage.getItem("mødelokale6");
+        let erReserveret = localStorage.getItem("mødelokale");
         if (erReserveret === "true") {
-            statusText.innerText = "❌ Mødelokale 6 er reserveret!";
+            statusText.innerText = "❌ Mødelokale er reserveret!";
             statusText.classList.remove("text-danger");
             statusText.classList.add("text-success");
             reserverBtn.disabled = true; // Deaktiver "Reserver" knappen
             annullerBtn.style.display = "block"; // Vis "Annuller" knappen
         } else {
-            statusText.innerText = "✅ Mødelokale 6 er ledigt!";
+            statusText.innerText = "✅ Mødelokale er ledigt!";
             statusText.classList.remove("text-danger");
             statusText.classList.add("text-success");
             reserverBtn.disabled = false; // Gør "Reserver" aktiv igen
@@ -28,14 +28,14 @@
     });
 
     document.getElementById("bekraeftKnap").addEventListener("click", function() {
-        localStorage.setItem("mødelokale6", "true"); // Gem reservationen i localStorage
+        localStorage.setItem("mødelokale", "true"); // Gem reservationen i localStorage
         checkReservation(); // Opdater UI
         var modal = bootstrap.Modal.getInstance(document.getElementById("bekraeftModal"));
         modal.hide();
     });
 
     annullerBtn.addEventListener("click", function() {
-        localStorage.removeItem("mødelokale6"); // Fjern reservationen
+        localStorage.removeItem("mødelokale"); // Fjern reservationen
         checkReservation(); // Opdater UI
     });
 });
