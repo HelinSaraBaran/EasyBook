@@ -13,8 +13,9 @@
         
         // vi tlføjer vores properties
         public DateTime? ReservationTime { get; set; }//Hvornår blev det reserveret?
-        public string? RedservedBy { get; set; }// Hvem reserverer lokalet?
-        public string ReservedBy { get; internal set; }
+
+        // Hvem reserverer lokalet?
+        public string ReservedBy { get; set; }
 
 
 
