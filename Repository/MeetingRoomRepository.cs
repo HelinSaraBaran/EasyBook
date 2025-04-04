@@ -20,6 +20,11 @@ namespace EasyBook.Repository
         
         // metode til at hente alle mødelokalerne
         public List<MeetingRoom> GetAll() => meetingRooms;
+
+        internal void AddMeeting(MeetingRoom meeting)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
