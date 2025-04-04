@@ -18,13 +18,13 @@ namespace EasyBook.Pages
 
         // Brugeren kan søge efter navn 
         [BindProperty(SupportsGet = true)]
-        public string SearchName { get; set; }
+        public string? SearchName { get; set; }
 
         // Brugeren kan vælge sortering ældst til nyest
         [BindProperty(SupportsGet = true)]
-        public string SortOrder { get; set; }
+        public string? SortOrder { get; set; }
 
-        public ReservedModel(BookingServices bookingservice) 
+        public ReservedModel(BookingServices bookingservice)
         {
             _bookingservice = bookingservice;
         }
@@ -33,7 +33,7 @@ namespace EasyBook.Pages
         public void OnGet()
         {
             // Vi henter alle mødelokaler
-            List<MeetingRoom> allRooms = MeetingRoom.GetAll(Booking);
+            List<MeetingRoom> allRooms = _bookingservice.GetAll().Select(b => new MeetingRoom(b.MeetingRoomId, "", 0, false, false, false, "")).ToList();
 
             // vi vælger mødelokaler der er reserveret (IsAvailable == false)
             foreach (MeetingRoom room in allRooms)
@@ -69,7 +69,7 @@ namespace EasyBook.Pages
             }
             else
             {
-                ReservedRooms = ReservedRooms.OrderByDescending(r => r.ReservedBy).ToList();//Nyeste først
+                ReservedRooms = ReservedRooms.OrderByDescending(r => r.ReservationTime).ToList();//Nyeste først
             }
         }
     }
